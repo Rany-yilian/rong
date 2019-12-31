@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rong.im.mapper.UserMapper">
+
+    <select id="getUserByPhone" resultType="com.rong.im.Bean.User" parameterType="java.lang.String">
+        SELECT * FROM user WHERE  phone= #{phone}
+    </select>
+
+    <insert id="insert" parameterType="com.rong.im.Bean.User" useGeneratedKeys="true">
+        INSERT INTO user(phone,pwd, hash, create_time) VALUES(#{phone},#{pwd}, #{hash}, #{create_time})
+    </insert>
+
+    <!--<update id="update" parameterType="com.rong.im.Bean.User">-->
+        <!--UPDATE tb_user SET sex=#{sex}, age=#{age} WHERE name=#{name}-->
+    <!--</update>-->
+
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+</mapper>
