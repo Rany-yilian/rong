@@ -9,6 +9,8 @@ import com.rong.im.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class SmsServiceImple implements SmsService {
 
@@ -16,8 +18,8 @@ public class SmsServiceImple implements SmsService {
     SmsMapper smsMapper;
 
     @Override
-    public Sms getSmsByPhone(Long phone){
-        Sms sms = smsMapper.getSmsByPhone(phone+"");
+    public Map<String,Object> getSmsByPhone(Long phone){
+        Map<String,Object> sms = smsMapper.getSmsByPhone(phone+"");
         if(null!=sms){
             return sms;
         }

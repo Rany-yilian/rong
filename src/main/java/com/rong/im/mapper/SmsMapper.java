@@ -4,10 +4,12 @@ import com.rong.im.Bean.Sms;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Map;
+
 @Mapper
 public interface SmsMapper {
 
-    Sms getSmsByPhone(String phone);
+    Map<String,Object> getSmsByPhone(String phone);
 
     boolean insert(Sms sms);
 

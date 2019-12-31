@@ -37,13 +37,14 @@ public class SmsController {
         if(user!=null){
             return JsonUtils.render("0","此手机号已注册");
         }
-        Sms sms = smsService.getSmsByPhone(phone);
+        Map<String,Object> sms = smsService.getSmsByPhone(phone);
         long time = TimeUtils.getCurrentTime();
         //生成短信验证码
         String code = CodeUtils.getRandomString(5);
+        Long expire = Long.valueOf(String.valueOf(sms.get("create_time")));
         if(sms!=null){
-            if((time-sms.getCreateTime())<60){
-                long diff = 60-(time-sms.getCreateTime());
+            if((time-expire)<60){
+                long diff = 60-(time-expire);
                 return JsonUtils.render("0","请"+diff+"秒后再试");
             }
             smsService.update(phone+"",code,time);

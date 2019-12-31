@@ -2,10 +2,12 @@ package com.rong.im.Service;
 
 import com.rong.im.Bean.Sms;
 
+import java.util.Map;
+
 
 public interface SmsService {
 
-    Sms getSmsByPhone(Long phone);
+    Map<String,Object> getSmsByPhone(Long phone);
 
     boolean addSms(Sms sms);
 
