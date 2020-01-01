@@ -7,7 +7,7 @@
     </select>
 
     <insert id="insert" parameterType="com.rong.im.Bean.User" useGeneratedKeys="true">
-        INSERT INTO user(phone,pwd, hash, create_time) VALUES(#{phone},#{pwd}, #{hash}, #{create_time})
+        INSERT INTO user(phone,pwd, hash, create_time) VALUES(#{phone},#{pwd}, #{hash}, #{createTime})
     </insert>
 
     <!--<update id="update" parameterType="com.rong.im.Bean.User">-->

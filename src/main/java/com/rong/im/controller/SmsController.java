@@ -40,14 +40,14 @@ public class SmsController {
         Map<String,Object> sms = smsService.getSmsByPhone(phone);
         long time = TimeUtils.getCurrentTime();
         //生成短信验证码
-        String code = CodeUtils.getRandomString(5);
+        String code = CodeUtils.getRandomCode(5);
         Long expire = Long.valueOf(String.valueOf(sms.get("create_time")));
         if(sms!=null){
             if((time-expire)<60){
                 long diff = 60-(time-expire);
                 return JsonUtils.render("0","请"+diff+"秒后再试");
             }
-            smsService.update(phone+"",code,time);
+            smsService.update(1,phone+"",code,time);
         }else{
             sm.setSmcode(code);
             sm.setPhone(phone+"");

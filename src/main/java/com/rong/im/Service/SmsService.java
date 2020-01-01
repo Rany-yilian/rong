@@ -11,5 +11,7 @@ public interface SmsService {
 
     boolean addSms(Sms sms);
 
-    boolean update(String phone,String smcode,long createTime);
+    boolean update(long status,String phone,String smcode,long createTime);
+
+    boolean updateStatusByPhone(long status,String phone);
 }

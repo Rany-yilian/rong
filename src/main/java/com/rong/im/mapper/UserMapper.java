@@ -11,7 +11,7 @@ public interface UserMapper {
 
     boolean insert(User user);
 
-    boolean update(@Param("phone") String phone,@Param("pwd") String pwd,@Param("hash") String hash,@Param("create_time") long create_time);
+    boolean update(@Param("phone") String phone,@Param("pwd") String pwd,@Param("hash") String hash,@Param("create_time") long createTime);
 
     void delete(@Param("id") long id);
 }

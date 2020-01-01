@@ -7,6 +7,7 @@ public class Sms {
   private String phone;
   private String smcode;
   private long createTime;
+  private int status;
 
   public Sms() {
 
@@ -27,6 +28,13 @@ public class Sms {
     this.id = id;
   }
 
+  public long getStatus() {
+    return status;
+  }
+
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
   public String getPhone() {
     return phone;

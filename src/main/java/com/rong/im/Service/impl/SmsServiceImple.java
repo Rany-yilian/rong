@@ -32,7 +32,12 @@ public class SmsServiceImple implements SmsService {
     }
 
     @Override
-    public boolean update(String phone,String smcode,long create_time){
-        return smsMapper.update(phone,smcode,create_time);
+    public boolean update(long status,String phone,String smcode,long create_time){
+        return smsMapper.update(status,phone,smcode,create_time);
+    }
+
+    @Override
+    public boolean updateStatusByPhone(long status,String phone){
+        return smsMapper.updateStatusByPhone(status,phone);
     }
 }

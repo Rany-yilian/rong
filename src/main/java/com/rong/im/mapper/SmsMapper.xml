@@ -11,7 +11,11 @@
     </insert>
 
     <update id="update" parameterType="com.rong.im.Bean.Sms">
-        UPDATE sms SET smcode=#{smcode}, create_time=#{create_time} WHERE phone=#{phone}
+        UPDATE sms SET smcode=#{smcode},status=#{status}, create_time=#{create_time} WHERE phone=#{phone}
+    </update>
+
+    <update id="updateStatusByPhone" parameterType="com.rong.im.Bean.Sms">
+        UPDATE sms SET status=#{status} WHERE phone=#{phone}
     </update>
 
 </mapper>

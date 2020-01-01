@@ -13,5 +13,7 @@ public interface SmsMapper {
 
     boolean insert(Sms sms);
 
-    boolean update(@Param("phone") String phone,@Param("smcode") String smcode,@Param("create_time") long createTime);
+    boolean update(@Param("status") long status,@Param("phone") String phone,@Param("smcode") String smcode,@Param("create_time") long createTime);
+
+    boolean updateStatusByPhone(@Param("status") long status,@Param("phone") String phone);
 }
