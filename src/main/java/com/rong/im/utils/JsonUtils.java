@@ -14,4 +14,11 @@ public class JsonUtils {
         return json;
     }
 
+    public static Map<String,Object> render(String code,String msg,Map<String,Object> data){
+        Map<String,Object> json = new HashMap<String ,Object>();
+        json.put("code",code);
+        json.put("msg",msg);
+        json.put("data",data);
+        return json;
+    }
 }

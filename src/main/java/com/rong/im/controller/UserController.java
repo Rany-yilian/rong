@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -75,6 +76,15 @@ public class UserController {
         if(!userPwd.equals(EncryptUtils.md5(pwd+userHash))){
             return JsonUtils.render("0","密码错误");
         }
-        return JsonUtils.render("1","登录成功");
+        Map<String,Object> json = new HashMap<String, Object>();
+        String id = String.valueOf(user.get("id"));
+        try {
+            String token = AesUtils.aesEncrypt(id);
+            json.put("token",token);
+            System.out.println(AesUtils.aesDecrypt(token));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return JsonUtils.render("1","登录成功",json);
     }
 }
