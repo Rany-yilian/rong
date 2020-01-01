@@ -4,10 +4,14 @@ import com.rong.im.Bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Map;
+
 @Mapper
 public interface UserMapper {
 
     User getUserByPhone(String phone);
+
+    Map<String,Object> getUser(@Param("phone") String phone);
 
     boolean insert(User user);
 

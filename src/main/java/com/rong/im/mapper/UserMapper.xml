@@ -6,6 +6,10 @@
         SELECT * FROM user WHERE  phone= #{phone}
     </select>
 
+    <select id="getUser" resultType="java.util.Map" parameterType="java.lang.String">
+        SELECT * FROM user WHERE  phone= #{phone}
+    </select>
+
     <insert id="insert" parameterType="com.rong.im.Bean.User" useGeneratedKeys="true">
         INSERT INTO user(phone,pwd, hash, create_time) VALUES(#{phone},#{pwd}, #{hash}, #{createTime})
     </insert>

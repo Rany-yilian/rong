@@ -6,6 +6,8 @@ import com.rong.im.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -26,5 +28,12 @@ public class UserServiceImpl implements UserService {
         return userMapper.insert(user);
     }
 
-
+    @Override
+    public Map<String,Object> getUser(String phone){
+        Map<String,Object> user = userMapper.getUser(phone);
+        if(null!=user){
+            return user;
+        }
+        return null;
+    }
 }

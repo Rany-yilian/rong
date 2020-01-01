@@ -41,8 +41,8 @@ public class SmsController {
         long time = TimeUtils.getCurrentTime();
         //生成短信验证码
         String code = CodeUtils.getRandomCode(5);
-        Long expire = Long.valueOf(String.valueOf(sms.get("create_time")));
         if(sms!=null){
+            Long expire = Long.valueOf(String.valueOf(sms.get("create_time")));
             if((time-expire)<60){
                 long diff = 60-(time-expire);
                 return JsonUtils.render("0","请"+diff+"秒后再试");

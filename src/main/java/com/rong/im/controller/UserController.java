@@ -58,4 +58,23 @@ public class UserController {
         smsService.updateStatusByPhone(2,phone+"");
         return JsonUtils.render("1","注册成功");
     }
+
+    @RequestMapping(value = "/login")
+    @ResponseBody
+    public Map<String, Object> login(String pwd,long phone){
+        boolean isPhone = PhoneUtils.check(phone+"");
+        if(!isPhone){
+            return JsonUtils.render("0","手机号格式错误");
+        }
+        Map<String,Object> user = userService.getUser(phone+"");
+        if(user==null){
+            return JsonUtils.render("0","此手机号未注册");
+        }
+        String userPwd = String.valueOf(user.get("pwd"));
+        String userHash = String.valueOf(user.get("hash"));
+        if(!userPwd.equals(EncryptUtils.md5(pwd+userHash))){
+            return JsonUtils.render("0","密码错误");
+        }
+        return JsonUtils.render("1","登录成功");
+    }
 }
