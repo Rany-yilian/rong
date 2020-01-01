@@ -81,7 +81,6 @@ public class UserController {
         try {
             String token = AesUtils.aesEncrypt(id);
             json.put("token",token);
-            System.out.println(AesUtils.aesDecrypt(token));
         }catch (Exception e){
             e.printStackTrace();
         }
