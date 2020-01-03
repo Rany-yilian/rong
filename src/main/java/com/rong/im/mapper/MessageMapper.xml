@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rong.im.mapper.MessageMapper">
+
+    <select id="getMsgById" resultType="java.util.Map" parameterType="java.lang.Long">
+        SELECT * FROM message WHERE  id= #{id}
+    </select>
+
+    <select id="getList" parameterType="com.rong.im.Bean.Message" resultType="java.util.Map">
+        SELECT * FROM message WHERE  uid= #{uid} order by create_time desc limit #{start},#{length}
+    </select>
+
+    <insert id="insert" parameterType="com.rong.im.Bean.Message" useGeneratedKeys="true">
+        INSERT INTO message(`title`,`content`, `create_time`,`uid`) VALUES(#{title},#{content}, #{createTime},#{uid})
+    </insert>
+
+    <update id="updateStatusById" parameterType="com.rong.im.Bean.Message">
+    UPDATE message SET status=#{status} WHERE id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM message WHERE id = #{id}
+    </delete>
+</mapper>

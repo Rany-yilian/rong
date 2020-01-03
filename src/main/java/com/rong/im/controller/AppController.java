@@ -6,7 +6,6 @@ import com.rong.im.utils.AesUtils;
 import com.rong.im.utils.CodeUtils;
 import com.rong.im.utils.JsonUtils;
 import com.rong.im.utils.TimeUtils;
-import netscape.javascript.JSUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
