@@ -11,7 +11,6 @@ public class TimeUtils {
             return 0;
         }
 
-        
         String timestamp = String.valueOf(date.getTime());
         int length = timestamp.length();
         if (length > 3) {
