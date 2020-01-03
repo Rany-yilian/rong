@@ -15,32 +15,32 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public User getUserByPhone(long phone){
-        User user = userMapper.getUserByPhone(phone+"");
-        if(null!=user){
+    public User getUserByPhone(long phone) {
+        User user = userMapper.getUserByPhone(phone + "");
+        if (null != user) {
             return user;
         }
         return null;
     }
 
     @Override
-    public Map<String,Object> getById(Long id){
-        Map<String,Object> user = userMapper.getById(id);
-        if(user!=null){
+    public Map<String, Object> getById(Long id) {
+        Map<String, Object> user = userMapper.getById(id);
+        if (user != null) {
             return user;
         }
         return null;
     }
 
     @Override
-    public boolean addUser(User user){
+    public boolean addUser(User user) {
         return userMapper.insert(user);
     }
 
     @Override
-    public Map<String,Object> getUser(String phone){
-        Map<String,Object> user = userMapper.getUser(phone);
-        if(null!=user){
+    public Map<String, Object> getUser(String phone) {
+        Map<String, Object> user = userMapper.getUser(phone);
+        if (null != user) {
             return user;
         }
         return null;

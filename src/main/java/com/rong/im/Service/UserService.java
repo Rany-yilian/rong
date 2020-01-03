@@ -10,7 +10,7 @@ public interface UserService {
 
     boolean addUser(User user);
 
-    Map<String,Object> getUser(String phone);
+    Map<String, Object> getUser(String phone);
 
-    Map<String,Object> getById(Long id);
+    Map<String, Object> getById(Long id);
 }

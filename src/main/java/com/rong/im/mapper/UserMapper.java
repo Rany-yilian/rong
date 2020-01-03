@@ -11,13 +11,13 @@ public interface UserMapper {
 
     User getUserByPhone(String phone);
 
-    Map<String,Object> getById(Long id);
+    Map<String, Object> getById(Long id);
 
-    Map<String,Object> getUser(@Param("phone") String phone);
+    Map<String, Object> getUser(@Param("phone") String phone);
 
     boolean insert(User user);
 
-    boolean update(@Param("phone") String phone,@Param("pwd") String pwd,@Param("hash") String hash,@Param("create_time") long createTime);
+    boolean update(@Param("phone") String phone, @Param("pwd") String pwd, @Param("hash") String hash, @Param("create_time") long createTime);
 
     void delete(@Param("id") long id);
 }

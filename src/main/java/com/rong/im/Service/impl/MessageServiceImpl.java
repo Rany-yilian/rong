@@ -16,8 +16,8 @@ public class MessageServiceImpl implements MessageService {
     MessageMapper messageMapper;
 
     public Map<String, Object> getMsgById(Long id, Long uid) {
-        Map<String,Object> msg = messageMapper.getMsgById(id,uid);
-        if(msg!=null){
+        Map<String, Object> msg = messageMapper.getMsgById(id, uid);
+        if (msg != null) {
             return msg;
         }
         return null;
@@ -35,11 +35,11 @@ public class MessageServiceImpl implements MessageService {
         return messageMapper.getList(uid, start, length);
     }
 
-    public Long getNoReadCount(Long uid){
+    public Long getNoReadCount(Long uid) {
         return messageMapper.getNoReadCount(uid);
     }
 
-    public Long getCount(Long uid){
+    public Long getCount(Long uid) {
         return messageMapper.getCount(uid);
     }
 }

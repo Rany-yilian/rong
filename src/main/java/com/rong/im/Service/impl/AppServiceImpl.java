@@ -15,21 +15,21 @@ public class AppServiceImpl implements AppService {
     AppMapper appMapper;
 
     @Override
-    public Map<String,Object> getByUid(Long uid){
-        Map<String,Object> app = appMapper.getAppByUid(uid);
-        if(app!=null){
+    public Map<String, Object> getByUid(Long uid) {
+        Map<String, Object> app = appMapper.getAppByUid(uid);
+        if (app != null) {
             return app;
         }
         return null;
     }
 
     @Override
-    public boolean insert(App app){
+    public boolean insert(App app) {
         return appMapper.insert(app);
     }
 
     @Override
-    public boolean updateByUid(Long status,String name,String desc,Long uid){
-        return appMapper.updateByUid(status,name,desc,uid);
+    public boolean updateByUid(Long status, String name, String desc, Long uid) {
+        return appMapper.updateByUid(status, name, desc, uid);
     }
 }

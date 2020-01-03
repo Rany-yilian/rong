@@ -7,11 +7,11 @@ import java.util.Map;
 
 public interface SmsService {
 
-    Map<String,Object> getSmsByPhone(Long phone);
+    Map<String, Object> getSmsByPhone(Long phone);
 
     boolean addSms(Sms sms);
 
-    boolean update(long status,String phone,String smcode,long createTime);
+    boolean update(long status, String phone, String smcode, long createTime);
 
-    boolean updateStatusByPhone(long status,String phone);
+    boolean updateStatusByPhone(long status, String phone);
 }

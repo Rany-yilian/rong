@@ -9,11 +9,11 @@ import java.util.Map;
 @Mapper
 public interface SmsMapper {
 
-    Map<String,Object> getSmsByPhone(String phone);
+    Map<String, Object> getSmsByPhone(String phone);
 
     boolean insert(Sms sms);
 
-    boolean update(@Param("status") long status,@Param("phone") String phone,@Param("smcode") String smcode,@Param("create_time") long createTime);
+    boolean update(@Param("status") long status, @Param("phone") String phone, @Param("smcode") String smcode, @Param("create_time") long createTime);
 
-    boolean updateStatusByPhone(@Param("status") long status,@Param("phone") String phone);
+    boolean updateStatusByPhone(@Param("status") long status, @Param("phone") String phone);
 }

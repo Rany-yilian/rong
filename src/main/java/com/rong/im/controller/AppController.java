@@ -24,18 +24,18 @@ public class AppController {
 
     @RequestMapping("/submit")
     @ResponseBody
-    public Map<String, Object> submit(String name,String desc,String token){
+    public Map<String, Object> submit(String name, String desc, String token) {
         try {
             String uid = AesUtils.aesDecrypt(token);
-            Map<String,Object> app = appService.getByUid(Long.valueOf(uid));
-            if(app!=null){
+            Map<String, Object> app = appService.getByUid(Long.valueOf(uid));
+            if (app != null) {
                 Long status = Long.valueOf(String.valueOf(app.get("status")));
-                if(status==1 || status==2){//审核中或者审核通过
-                    return JsonUtils.render("1","已经提交过了");
+                if (status == 1 || status == 2) {//审核中或者审核通过
+                    return JsonUtils.render("1", "已经提交过了");
                 }
                 //更新
-                appService.updateByUid(Long.valueOf(1),name,desc,Long.valueOf(uid));
-            }else{//新增
+                appService.updateByUid(Long.valueOf(1), name, desc, Long.valueOf(uid));
+            } else {//新增
                 appBean.setName(name);
                 appBean.setDesc(desc);
                 appBean.setUid(Long.valueOf(uid));
@@ -44,8 +44,8 @@ public class AppController {
                 appBean.setSecret(CodeUtils.getRandomAlphabet(15));
                 appService.insert(appBean);
             }
-            return JsonUtils.render("1","提交成功");
-        }catch (Exception e){
+            return JsonUtils.render("1", "提交成功");
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

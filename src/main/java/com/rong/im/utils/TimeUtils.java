@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class TimeUtils {
 
-    public static long getCurrentTime(){
+    public static long getCurrentTime() {
         Date date = new Date();
         if (null == date) {
             return 0;
@@ -13,7 +13,7 @@ public class TimeUtils {
         String timestamp = String.valueOf(date.getTime());
         int length = timestamp.length();
         if (length > 3) {
-            return Integer.valueOf(timestamp.substring(0,length-3));
+            return Integer.valueOf(timestamp.substring(0, length - 3));
         } else {
             return 0;
         }

@@ -28,33 +28,33 @@ public class SmsController {
 
     @RequestMapping("/send")
     @ResponseBody
-    public Map<String, Object> send(long phone){
-        boolean isPhone = PhoneUtils.check(phone+"");
-        if(!isPhone){
-            return JsonUtils.render("0","手机号格式错误");
+    public Map<String, Object> send(long phone) {
+        boolean isPhone = PhoneUtils.check(phone + "");
+        if (!isPhone) {
+            return JsonUtils.render("0", "手机号格式错误");
         }
         User user = userService.getUserByPhone(phone);
-        if(user!=null){
-            return JsonUtils.render("0","此手机号已注册");
+        if (user != null) {
+            return JsonUtils.render("0", "此手机号已注册");
         }
-        Map<String,Object> sms = smsService.getSmsByPhone(phone);
+        Map<String, Object> sms = smsService.getSmsByPhone(phone);
         long time = TimeUtils.getCurrentTime();
         //生成短信验证码
         String code = CodeUtils.getRandomCode(5);
-        if(sms!=null){
+        if (sms != null) {
             Long expire = Long.valueOf(String.valueOf(sms.get("create_time")));
-            if((time-expire)<60){
-                long diff = 60-(time-expire);
-                return JsonUtils.render("0","请"+diff+"秒后再试");
+            if ((time - expire) < 60) {
+                long diff = 60 - (time - expire);
+                return JsonUtils.render("0", "请" + diff + "秒后再试");
             }
-            smsService.update(1,phone+"",code,time);
-        }else{
+            smsService.update(1, phone + "", code, time);
+        } else {
             sm.setSmcode(code);
-            sm.setPhone(phone+"");
+            sm.setPhone(phone + "");
             sm.setCreateTime(time);
             smsService.addSms(sm);
         }
 
-        return JsonUtils.render("1","发送成功");
+        return JsonUtils.render("1", "发送成功");
     }
 }

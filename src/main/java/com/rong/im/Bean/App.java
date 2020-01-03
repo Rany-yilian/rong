@@ -3,105 +3,105 @@ package com.rong.im.Bean;
 
 public class App {
 
-  private long id;
-  private String key;
-  private String secret;
-  private long createTime;
-  private long deleteTime;
-  private long updateTime;
-  private String name;
-  private String desc;
-  private long uid;
-  private long status;
+    private long id;
+    private String key;
+    private String secret;
+    private long createTime;
+    private long deleteTime;
+    private long updateTime;
+    private String name;
+    private String desc;
+    private long uid;
+    private long status;
 
 
-  public long getId() {
-    return id;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
-
-  public String getKey() {
-    return key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
 
-  public String getSecret() {
-    return secret;
-  }
+    public String getKey() {
+        return key;
+    }
 
-  public void setSecret(String secret) {
-    this.secret = secret;
-  }
-
-
-  public long getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(long createTime) {
-    this.createTime = createTime;
-  }
+    public void setKey(String key) {
+        this.key = key;
+    }
 
 
-  public long getDeleteTime() {
-    return deleteTime;
-  }
+    public String getSecret() {
+        return secret;
+    }
 
-  public void setDeleteTime(long deleteTime) {
-    this.deleteTime = deleteTime;
-  }
-
-
-  public long getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(long updateTime) {
-    this.updateTime = updateTime;
-  }
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
 
 
-  public String getName() {
-    return name;
-  }
+    public long getCreateTime() {
+        return createTime;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public String getDesc() {
-    return desc;
-  }
-
-  public void setDesc(String desc) {
-    this.desc = desc;
-  }
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
 
 
-  public long getUid() {
-    return uid;
-  }
+    public long getDeleteTime() {
+        return deleteTime;
+    }
 
-  public void setUid(long uid) {
-    this.uid = uid;
-  }
+    public void setDeleteTime(long deleteTime) {
+        this.deleteTime = deleteTime;
+    }
 
 
-  public long getStatus() {
-    return status;
-  }
+    public long getUpdateTime() {
+        return updateTime;
+    }
 
-  public void setStatus(long status) {
-    this.status = status;
-  }
+    public void setUpdateTime(long updateTime) {
+        this.updateTime = updateTime;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+
+    public long getUid() {
+        return uid;
+    }
+
+    public void setUid(long uid) {
+        this.uid = uid;
+    }
+
+
+    public long getStatus() {
+        return status;
+    }
+
+    public void setStatus(long status) {
+        this.status = status;
+    }
 
 }

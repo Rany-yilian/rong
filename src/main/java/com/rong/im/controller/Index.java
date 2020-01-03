@@ -14,9 +14,9 @@ public class Index {
 
     @GetMapping("/index/send")
     @ResponseBody
-    public Map<String, Object> send(long phone){
-        Map<String,Object> param= new HashMap<String,Object>();
-        param.put("phone",phone);
+    public Map<String, Object> send(long phone) {
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("phone", phone);
         return param;
     }
 }

@@ -18,26 +18,26 @@ public class SmsServiceImple implements SmsService {
     SmsMapper smsMapper;
 
     @Override
-    public Map<String,Object> getSmsByPhone(Long phone){
-        Map<String,Object> sms = smsMapper.getSmsByPhone(phone+"");
-        if(null!=sms){
+    public Map<String, Object> getSmsByPhone(Long phone) {
+        Map<String, Object> sms = smsMapper.getSmsByPhone(phone + "");
+        if (null != sms) {
             return sms;
         }
         return null;
     }
 
     @Override
-    public boolean addSms(Sms sms){
+    public boolean addSms(Sms sms) {
         return smsMapper.insert(sms);
     }
 
     @Override
-    public boolean update(long status,String phone,String smcode,long create_time){
-        return smsMapper.update(status,phone,smcode,create_time);
+    public boolean update(long status, String phone, String smcode, long create_time) {
+        return smsMapper.update(status, phone, smcode, create_time);
     }
 
     @Override
-    public boolean updateStatusByPhone(long status,String phone){
-        return smsMapper.updateStatusByPhone(status,phone);
+    public boolean updateStatusByPhone(long status, String phone) {
+        return smsMapper.updateStatusByPhone(status, phone);
     }
 }

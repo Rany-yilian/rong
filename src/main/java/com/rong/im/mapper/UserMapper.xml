@@ -19,7 +19,7 @@
     </insert>
 
     <!--<update id="update" parameterType="com.rong.im.Bean.User">-->
-        <!--UPDATE tb_user SET sex=#{sex}, age=#{age} WHERE name=#{name}-->
+    <!--UPDATE tb_user SET sex=#{sex}, age=#{age} WHERE name=#{name}-->
     <!--</update>-->
 
     <delete id="delete" parameterType="java.lang.Long">

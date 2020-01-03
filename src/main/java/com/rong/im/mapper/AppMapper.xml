@@ -7,7 +7,6 @@
     </select>
 
 
-
     <insert id="insert" parameterType="com.rong.im.Bean.App" useGeneratedKeys="true">
         INSERT INTO app(`key`,`secret`, `create_time`, `name`,`desc`,`uid`) VALUES(#{key},#{secret}, #{createTime}, #{name},#{desc},#{uid})
     </insert>

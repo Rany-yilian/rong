@@ -10,9 +10,9 @@ import java.util.Map;
 public class Code {
 
     @GetMapping("/code/send")
-    public Map<String, Object> send(long phone){
-        Map<String,Object> param= new HashMap<String,Object>();
-        param.put("phone",phone);
+    public Map<String, Object> send(long phone) {
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("phone", phone);
         return param;
     }
 }

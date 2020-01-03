@@ -9,9 +9,9 @@ import java.util.Map;
 @Mapper
 public interface AppMapper {
 
-    Map<String,Object> getAppByUid(long uid);
+    Map<String, Object> getAppByUid(long uid);
 
     boolean insert(App app);
 
-    boolean updateByUid(@Param("status") Long status,@Param("name") String name,@Param("desc") String desc,@Param("uid") Long uid);
+    boolean updateByUid(@Param("status") Long status, @Param("name") String name, @Param("desc") String desc, @Param("uid") Long uid);
 }
