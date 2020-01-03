@@ -3,7 +3,7 @@
 <mapper namespace="com.rong.im.mapper.MessageMapper">
 
     <select id="getMsgById" resultType="java.util.Map" parameterType="java.lang.Long">
-        SELECT * FROM message WHERE  id= #{id}
+        SELECT * FROM message WHERE  id= #{id} and uid=#{uid}
     </select>
 
     <select id="getList" parameterType="com.rong.im.Bean.Message" resultType="java.util.Map">

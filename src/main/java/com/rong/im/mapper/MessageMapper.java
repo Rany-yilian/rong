@@ -11,7 +11,7 @@ import java.util.Map;
 @Mapper
 public interface MessageMapper {
 
-    Map<String,Object> getMsgById(long id);
+    Map<String,Object> getMsgById(@Param("id") Long id,@Param("uid") Long uid);
 
     boolean insert(Message msg);
 

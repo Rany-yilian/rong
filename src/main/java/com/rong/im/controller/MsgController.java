@@ -30,12 +30,26 @@ public class MsgController {
     public Map<String, Object> list(String token, String page, String limit) {
         try {
             String uid = AesUtils.aesDecrypt(token);
-            Long start = (Long.valueOf(page)-1)*Long.valueOf(limit);
-            List<Message> list = messageService.getList(Long.valueOf(uid),start,Long.valueOf(limit));
-            Map<String,Object> json = new HashMap<String ,Object>();
-            json.put("list",list);
-            return JsonUtils.render("1", "获取成功",json);
+            Long start = (Long.valueOf(page) - 1) * Long.valueOf(limit);
+            List<Message> list = messageService.getList(Long.valueOf(uid), start, Long.valueOf(limit));
+            Map<String, Object> json = new HashMap<String, Object>();
+            json.put("list", list);
+            return JsonUtils.render("1", "获取成功", json);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @RequestMapping("/detail")
+    @ResponseBody
+    public Map<String, Object> detail(String id, String token) {
+        try {
+            String uid = AesUtils.aesDecrypt(token);
+            Map<String,Object> msg = messageService.getMsgById(Long.valueOf(id),Long.valueOf(uid));
+
+            return JsonUtils.render("1","获取成功",msg);
+        }catch (Exception e){
             e.printStackTrace();
         }
         return null;

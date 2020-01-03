@@ -8,11 +8,11 @@ import java.util.Map;
 
 public interface MessageService {
 
-    Map<String,Object> getMsgById(Long id);
+    Map<String, Object> getMsgById(Long id, Long uid);
 
     boolean insert(Message msg);
 
-    boolean updateStatusById(Long status,Long id);
+    boolean updateStatusById(Long status, Long id);
 
     public List<Message> getList(Long uid, Long start, Long length);
 }
