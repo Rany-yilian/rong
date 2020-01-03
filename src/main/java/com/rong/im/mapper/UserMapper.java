@@ -11,6 +11,8 @@ public interface UserMapper {
 
     User getUserByPhone(String phone);
 
+    Map<String,Object> getById(Long id);
+
     Map<String,Object> getUser(@Param("phone") String phone);
 
     boolean insert(User user);

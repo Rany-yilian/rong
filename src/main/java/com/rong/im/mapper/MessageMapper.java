@@ -18,4 +18,8 @@ public interface MessageMapper {
     boolean updateStatusById(@Param("status") Long status,@Param("id") Long id);
 
     public List<Message> getList(@Param("uid") Long uid,@Param("start") Long start,@Param("length") Long length);
+
+    Long getNoReadCount(@Param("uid") Long uid);
+
+    Long getCount(@Param("uid") Long uid);
 }

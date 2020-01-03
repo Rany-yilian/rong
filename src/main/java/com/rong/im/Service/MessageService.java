@@ -3,6 +3,7 @@ package com.rong.im.Service;
 
 import com.rong.im.Bean.Message;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -15,4 +16,8 @@ public interface MessageService {
     boolean updateStatusById(Long status, Long id);
 
     public List<Message> getList(Long uid, Long start, Long length);
+
+    Long getNoReadCount(Long uid);
+
+    Long getCount(Long uid);
 }

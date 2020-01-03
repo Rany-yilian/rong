@@ -24,6 +24,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Map<String,Object> getById(Long id){
+        Map<String,Object> user = userMapper.getById(id);
+        if(user!=null){
+            return user;
+        }
+        return null;
+    }
+
+    @Override
     public boolean addUser(User user){
         return userMapper.insert(user);
     }

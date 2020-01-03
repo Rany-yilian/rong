@@ -6,6 +6,14 @@
         SELECT * FROM message WHERE  id= #{id} and uid=#{uid}
     </select>
 
+    <select id="getCount" resultType="long" parameterType="java.lang.Long">
+        SELECT count(1) FROM message WHERE uid=#{uid}
+    </select>
+
+    <select id="getNoReadCount" resultType="long" parameterType="java.lang.Long">
+        SELECT COUNT(1) FROM message WHERE uid=#{uid} AND status=0
+    </select>
+
     <select id="getList" parameterType="com.rong.im.Bean.Message" resultType="java.util.Map">
         SELECT * FROM message WHERE  uid= #{uid} order by create_time desc limit #{start},#{length}
     </select>

@@ -1,6 +1,7 @@
 package com.rong.im.controller;
 
 import com.rong.im.Bean.User;
+import com.rong.im.Service.MessageService;
 import com.rong.im.Service.SmsService;
 import com.rong.im.Service.UserService;
 import com.rong.im.utils.*;
@@ -21,6 +22,9 @@ public class UserController {
     SmsService smsService;
     @Autowired
     UserService userService;
+
+    @Autowired
+    MessageService messageService;
 
     @RequestMapping(value = "/register")
     @ResponseBody
@@ -85,5 +89,31 @@ public class UserController {
             e.printStackTrace();
         }
         return JsonUtils.render("1","登录成功",json);
+    }
+
+    @RequestMapping("/info")
+    @ResponseBody
+    public Map<String,Object> info(String token){
+        try {
+            String uid = String.valueOf(AesUtils.aesDecrypt(token));
+            Map<String,Object> user = userService.getById(Long.valueOf(uid));
+            Map<String,Object> json = new HashMap<String, Object>();
+            json.put("msg_num",messageService.getCount(Long.valueOf(uid)));
+            json.put("no_read_msg_num",messageService.getNoReadCount(Long.valueOf(uid)));
+            String nickname = String.valueOf(user.get("nickname"));
+            if(user.get("nickname")==null){
+                nickname = "";
+            }
+            String avatar = String.valueOf(user.get("avatar"));
+            if(user.get("avatar")==null){
+                avatar = "";
+            }
+            json.put("nickname",nickname);
+            json.put("avatar",avatar);
+            return JsonUtils.render("1","获取成功",json);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -35,4 +35,11 @@ public class MessageServiceImpl implements MessageService {
         return messageMapper.getList(uid, start, length);
     }
 
+    public Long getNoReadCount(Long uid){
+        return messageMapper.getNoReadCount(uid);
+    }
+
+    public Long getCount(Long uid){
+        return messageMapper.getCount(uid);
+    }
 }
