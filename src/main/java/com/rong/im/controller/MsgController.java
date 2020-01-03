@@ -46,10 +46,15 @@ public class MsgController {
     public Map<String, Object> detail(String id, String token) {
         try {
             String uid = AesUtils.aesDecrypt(token);
-            Map<String,Object> msg = messageService.getMsgById(Long.valueOf(id),Long.valueOf(uid));
-
-            return JsonUtils.render("1","获取成功",msg);
-        }catch (Exception e){
+            Map<String, Object> msg = messageService.getMsgById(Long.valueOf(id), Long.valueOf(uid));
+            if (msg != null) {
+                Long status = Long.valueOf(String.valueOf(msg.get("status")));
+                if (status != 1) {
+                    messageService.updateStatusById(Long.valueOf(1), Long.valueOf(id));
+                }
+                return JsonUtils.render("1", "获取成功", msg);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
