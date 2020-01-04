@@ -1,5 +1,6 @@
 package com.rong.im.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -18,5 +19,10 @@ public class TimeUtils {
         } else {
             return 0;
         }
+    }
+
+    public static String format(Long time,String pattern){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        return simpleDateFormat.format(new Date(time));
     }
 }

@@ -14,9 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/msg")
@@ -32,6 +30,13 @@ public class MsgController {
             String uid = AesUtils.aesDecrypt(token);
             Long start = (Long.valueOf(page) - 1) * Long.valueOf(limit);
             List<Message> list = messageService.getList(Long.valueOf(uid), start, Long.valueOf(limit));
+            ListIterator it = list.listIterator();
+            while (it.hasNext()){
+                Map<String,Object> obj = (Map<String,Object>)it.next();
+                Long create = Long.valueOf(String.valueOf(obj.get("create_time")));
+                obj.put("f_create_time",TimeUtils.format(create*1000,"yyyy-MM-dd HH:mm:ss"));
+                it.set(obj);
+            }
             Map<String, Object> json = new HashMap<String, Object>();
             json.put("list", list);
             return JsonUtils.render("1", "获取成功", json);
