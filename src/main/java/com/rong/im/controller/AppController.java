@@ -50,4 +50,23 @@ public class AppController {
         }
         return null;
     }
+
+    @RequestMapping("/info")
+    @ResponseBody
+    public Map<String,Object> info(String token){
+        try {
+            String uid = AesUtils.aesDecrypt(token);
+            Map<String,Object> app = appService.getByUid(Long.valueOf(uid));
+            if(app!=null){
+                Long create = Long.valueOf(String.valueOf(app.get("create_time")));
+                app.put("f_create_time",TimeUtils.format(create*1000,"yyyy-MM-dd HH:mm:ss"));
+                return JsonUtils.render("1","获取成功",app);
+            }else {
+                return JsonUtils.render("0","还没有应用");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
